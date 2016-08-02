@@ -13,7 +13,7 @@ import java.util.List;
 public class SubsetsII {
 	public static void main(String[] args) {
 		SubsetsII ss = new SubsetsII();
-		int[] nums = { 1, 2, 2 };
+		int[] nums = {1,1, 2, 2 };
 		System.out.println(ss.subsetsWithDup(nums));
 	}
 
