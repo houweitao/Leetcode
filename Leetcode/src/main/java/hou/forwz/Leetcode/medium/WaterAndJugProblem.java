@@ -1,7 +1,9 @@
 package hou.forwz.Leetcode.medium;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -14,9 +16,9 @@ public class WaterAndJugProblem {
 
 	public static void main(String[] args) {
 		WaterAndJugProblem wa = new WaterAndJugProblem();
-		one = 5;
-		two = 3;
-		need = 7;
+		one = 3;
+		two = 4;
+		need = 5;
 		System.out.println(wa.canMeasureWater(one, two, need));
 
 	}
@@ -24,8 +26,11 @@ public class WaterAndJugProblem {
 	public boolean canMeasureWater(int x, int y, int z) {
 
 		Stack<Status> stack = new Stack<>();
+		Set<Status> set = new HashSet<>();
 
-		stack.push(new Status(0, 0));
+		Status status = new Status(0, 0);
+		stack.push(status);
+		set.add(status);
 
 		while (!stack.isEmpty()) {
 			System.out.println(stack);
@@ -41,12 +46,15 @@ public class WaterAndJugProblem {
 					Status stat = next.get(cur.dir);
 					if (stat.x == need || stat.y == need || (stat.x + stat.y == need)) {
 						stack.push(stat);
+						set.add(stat);
 						System.out.println(stack);
 						return true;
 					} else {
-						if (!stack.contains(stat)) {
+						 if (!stack.contains(stat)) {
+//						if (!set.contains(stat)) {
 							// System.out.println("push " + stat);
 							stack.push(stat);
+							set.add(stat);
 							find = true;
 							break;
 						}
@@ -54,7 +62,7 @@ public class WaterAndJugProblem {
 
 				}
 			if (!find)
-				stack.pop();
+				set.remove(stack.pop());
 
 		}
 		return false;
@@ -99,6 +107,12 @@ public class WaterAndJugProblem {
 		public String toString() {
 			// TODO Auto-generated method stub
 			return "[" + x + "," + y + "]";
+		}
+
+		@Override
+		public int hashCode() {
+			// TODO Auto-generated method stub
+			return x + y;
 		}
 
 		@Override
