@@ -8,6 +8,8 @@ import java.util.List;
  * @author houweitao
  * @date 2016年8月14日下午1:43:28
  * @timeout
+ * @add 没看懂
+ *      https://discuss.leetcode.com/topic/33734/java-segmenttree-solution-36ms
  */
 
 public class CountOfRangeSum {
@@ -56,9 +58,9 @@ public class CountOfRangeSum {
 		Collections.sort(left);
 		Collections.sort(right);
 
-//		if (root.val >= lower && root.val <= upper) {
-//			num++;
-//		}
+		// if (root.val >= lower && root.val <= upper) {
+		// num++;
+		// }
 
 		if (right.size() == 0) {
 			int rightPos = getPos(left, upper);
