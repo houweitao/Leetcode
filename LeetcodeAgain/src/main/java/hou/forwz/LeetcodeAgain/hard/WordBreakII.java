@@ -11,14 +11,17 @@ import java.util.Set;
  */
 
 public class WordBreakII {
+	int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+
 	public static void main(String[] args) {
 		WordBreakII wb = new WordBreakII();
-		String s = "aaaa";
+		String s = "catsanddog";
 		// String s = "ab";
 
 		Set<String> wordDict = new HashSet<>();
 		wordDict.add("a");
 		wordDict.add("aa");
+		wordDict.add("cat");
 		wordDict.add("sand");
 		wordDict.add("cats");
 		wordDict.add("and");
@@ -29,6 +32,12 @@ public class WordBreakII {
 
 	public List<String> wordBreak(String s, Set<String> wordDict) {
 		List<String> ret = new ArrayList<>();
+
+		for (String str : wordDict) {
+			max = Math.max(max, str.length());
+			min = Math.min(min, str.length());
+		}
+
 		dfs(s, 0, wordDict, "", ret);
 		return ret;
 	}
@@ -44,9 +53,9 @@ public class WordBreakII {
 			ret.add(add.trim());
 		}
 
-		for (int i = pos; i < s.length()-1; i++) {
+		for (int i = pos + min - 1; i < s.length() - 1 && i <= pos + max - 1; i++) {
 			String cur = s.substring(pos, i + 1);
-			System.out.println("cur: "+cur);
+//			System.out.println("cur: " + cur);
 			if (wordDict.contains(cur)) {
 				dfs(s, i + 1, wordDict, pre + " " + cur, ret);
 			}
