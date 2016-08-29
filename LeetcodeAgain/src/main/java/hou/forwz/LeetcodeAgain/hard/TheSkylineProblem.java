@@ -5,8 +5,7 @@ import java.util.List;
 
 /**
  * @author houweitao
- * @date 2016年8月29日上午1:04:41
- * @laji... 2016年08月29日01:27:53
+ * @date 2016年8月29日上午1:04:41 @laji... 2016年08月29日01:27:53
  */
 
 public class TheSkylineProblem {
@@ -19,7 +18,7 @@ public class TheSkylineProblem {
 	private List<int[]> help(int[][] buildings, int left, int right) {
 		if (left < right) {
 			int mid = left + (right - left) / 2;
-			return merge(help(buildings, left, mid), help(buildings, mid + 1, right));
+			return mergeMe(help(buildings, left, mid), help(buildings, mid + 1, right));
 		} else {
 			List<int[]> ret = new ArrayList<>();
 			if (left > right)
@@ -64,6 +63,47 @@ public class TheSkylineProblem {
 			}
 
 			if (ret.size() == 0 || h != ret.get(ret.size() - 1)[1]) {
+				int[] tmp = { heng, h };
+				ret.add(tmp);
+			}
+
+		}
+		ret.addAll(one);
+		ret.addAll(two);
+
+		return ret;
+	}
+
+	private List<int[]> mergeMe(List<int[]> one, List<int[]> two) {
+		int h1 = 0, h2 = 0;
+		List<int[]> ret = new ArrayList<>();
+
+		while (one.size() > 0 && two.size() > 0) {
+			int o = one.get(0)[0];
+			int t = two.get(0)[0];
+			int heng;
+			int h;
+			if (o < t) {
+				heng = o;
+				h1 = one.get(0)[1];
+				h = Math.max(h2, h1);
+				one.remove(0);
+			} else if (o > t) {
+				heng = t;
+				h2 = two.get(0)[1];
+				h = Math.max(h1, h2);
+				two.remove(0);
+			} else {
+				heng = o;
+				h1 = one.get(0)[1];
+				h2 = two.get(0)[1];
+				h = Math.max(h1, h2);
+				// h = Math.max(h1, h);
+				one.remove(0);
+				two.remove(0);
+			}
+
+			if (ret.size() == 0 || ret.get(ret.size() - 1)[1] != h) {
 				int[] tmp = { heng, h };
 				ret.add(tmp);
 			}
