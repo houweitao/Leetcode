@@ -1,6 +1,5 @@
 package hou.forwz.Leetcode.medium;
 
-import hou.forwz.Leetcode.easy.HouseRobber;
 
 /**
  * @author houweitao
@@ -9,9 +8,9 @@ import hou.forwz.Leetcode.easy.HouseRobber;
 
 public class HouseRobberII {
 	public static void main(String[] args) {
-		HouseRobber hr = new HouseRobber();
-		int[] nums = { 3, 1, 2, 4, 6, 3 };
-		System.out.println(hr.rob(nums));
+		HouseRobberII hr = new HouseRobberII();
+		int[] nums = {1,2,4,2};
+		System.out.println(hr.better(nums));
 	}
 
 	int another(int[] nums){
