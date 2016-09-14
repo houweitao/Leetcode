@@ -14,7 +14,8 @@ public class CountCompleteTreeNodes {
 	Map<TreeNode, Integer> depth = new HashMap<>();
 
 	public int countNodes(TreeNode root) {
-
+		if (root == null)
+			return 0;
 		int leftDeep = deep(root.left);
 		int rightDeep = deep(root.right);
 
