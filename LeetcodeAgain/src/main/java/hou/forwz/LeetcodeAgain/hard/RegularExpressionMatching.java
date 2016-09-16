@@ -3,6 +3,7 @@ package hou.forwz.LeetcodeAgain.hard;
 /**
  * @author houweitao
  * @date 2016年8月28日下午10:17:18
+ * @nice https://discuss.leetcode.com/topic/40371/easy-dp-java-solution-with-detailed-explanation
  */
 
 public class RegularExpressionMatching {

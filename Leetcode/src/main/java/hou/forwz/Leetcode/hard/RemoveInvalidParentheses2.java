@@ -8,6 +8,11 @@ import java.util.*;
  */
 
 public class RemoveInvalidParentheses2 {
+	public static void main(String[] args) {
+		RemoveInvalidParentheses2 rp = new RemoveInvalidParentheses2();
+		String s = "()()";
+		System.out.println(rp.removeInvalidParentheses(s));
+	}
 
 	public List<String> removeInvalidParentheses(String s) {
 		List<String> ret = new ArrayList<>();
@@ -24,8 +29,9 @@ public class RemoveInvalidParentheses2 {
 		boolean doNotAdd = false;
 		int len = -1;
 		while (!queue.isEmpty()) {
+			System.out.println(queue);
 			String str = queue.poll();
-
+//			System.out.println("str: "+str);
 			if (str.length() < len)
 				break;
 
