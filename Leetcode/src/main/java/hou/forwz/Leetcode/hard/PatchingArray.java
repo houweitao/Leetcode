@@ -16,7 +16,7 @@ import java.util.TreeSet;
 public class PatchingArray {
 	public static void main(String[] args) {
 		PatchingArray pa = new PatchingArray();
-		int[] nums = {  };
+		int[] nums = { 3 };
 		int n = 2000;
 		System.out.println(pa.minPatches2(nums, n));
 	}
@@ -25,9 +25,10 @@ public class PatchingArray {
 		long miss = 1;
 		int added = 0, i = 0;
 		while (miss <= n) {
-			// System.out.println("out: " + miss);
+			 System.out.println("out: " + miss);
 			if (i < nums.length && nums[i] <= miss) {
 				miss += nums[i++];
+				System.out.println("?? " + miss);
 			} else {
 				System.out.println("miss " + miss);
 				miss += miss;
