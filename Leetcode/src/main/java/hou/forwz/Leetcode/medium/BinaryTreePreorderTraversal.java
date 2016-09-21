@@ -25,7 +25,6 @@ public class BinaryTreePreorderTraversal {
 			} else {
 				root = stack.pop().right;
 			}
-
 		}
 		return ret;
 
