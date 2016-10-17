@@ -1,4 +1,4 @@
-package hou.joy.HackerRank;
+package hou.enjoy.HackerRank;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
