@@ -1,4 +1,4 @@
-package hou.forme.GooglePrepare.GooglePrepare.midium;
+package hou.forme.GooglePrepare.GooglePrepare.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
