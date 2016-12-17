@@ -14,6 +14,9 @@ class NumberOfIslandsII {
 		int[][] directions = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 
 		int[] root = new int[m * n];
+		for (int i = 0; i < root.length; i++)
+			root[i] = -1;
+
 		int count = 0;
 
 		for (int i = 0; i < positions.length; i++) {
@@ -28,7 +31,7 @@ class NumberOfIslandsII {
 				int x = p[0] + directions[j][0];
 				int y = p[1] + directions[j][1];
 
-				if (yes(m, n, x, y) && root[x * n + y] != -1) {
+				if (yes(m, n, x, y) && root[x * n + y] != -1 && positions[x][y] != 0) {
 					int curRoot = getRoot(root, x * n + y);
 					if (curRoot != index) {
 						root[curRoot] = index;

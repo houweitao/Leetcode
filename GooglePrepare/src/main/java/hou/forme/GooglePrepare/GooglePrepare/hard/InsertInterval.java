@@ -1,6 +1,5 @@
 package hou.forme.GooglePrepare.GooglePrepare.hard;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,7 +10,7 @@ import hou.forme.GooglePrepare.GooglePrepare.structure.Interval;
  * @date 2016年12月5日下午4:57:07
  */
 
-public class nsertInterval {
+public class InsertInterval {
 
 	public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
 		List<Interval> result = new LinkedList<>();
